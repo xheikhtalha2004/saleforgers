@@ -1,3 +1,15 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Playfair Display', serif;
     margin: 0;
@@ -5,10 +17,16 @@ body {
     background-color: #FAFAFA;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 24px;
     padding: 20px 40px;
     background-color: #FFFFFF;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -23,6 +41,7 @@ header {
     color: #FF6F61;
     margin: 0;
     font-weight: 700;
+    white-space: nowrap;
 }
 
 #navbar ul {
@@ -49,34 +68,51 @@ header {
 
 /* Hamburger Menu */
 #hamburger-menu {
+    --bar-width: 24px;
+    --bar-offset: 8px;
     display: none;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 0;
     z-index: 101;
 }
 
 #hamburger-menu span {
-    width: 25px;
-    height: 3px;
+    position: absolute;
+    width: var(--bar-width);
+    height: 2px;
     background-color: #333;
-    margin: 5px 0;
-    transition: all 0.3s ease;
+    margin: 0;
+    transition: transform 0.25s ease, opacity 0.2s ease, background-color 0.25s ease;
     border-radius: 2px;
 }
 
+#hamburger-menu span:nth-child(1) {
+    transform: translateY(calc(var(--bar-offset) * -1));
+}
+
+#hamburger-menu span:nth-child(3) {
+    transform: translateY(var(--bar-offset));
+}
+
 #hamburger-menu.active span:nth-child(1) {
-    transform: rotate(45deg) translate(10px, 10px);
+    transform: rotate(45deg);
 }
 
 #hamburger-menu.active span:nth-child(2) {
     opacity: 0;
+    transform: scaleX(0);
 }
 
 #hamburger-menu.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: rotate(-45deg);
 }
 
 /* Hero Section */
@@ -92,7 +128,7 @@ header {
     border-radius: 0;
     position: relative;
     overflow: hidden;
-    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    background-image: url('https://images.unsplash.com/photo-1591696205602-2f950c417cb9?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=markus-winkler-IrRbSND5EUc-unsplash.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -116,7 +152,7 @@ header {
     font-size: 52px;
     margin-bottom: 20px;
     font-weight: 700;
-    letter-spacing: -1px;
+    letter-spacing: 0;
 }
 
 #hero p {
@@ -174,18 +210,20 @@ header {
 }
 
 #hero-image-container {
-    height: 330px;
-    width: 100%;
+    min-height: 330px;
+    width: min(100%, 1200px);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin: 40px auto 0;
     padding: 20px;
 }
 
 #hero-image-container img {
-    max-width: 100%;
-    height: 400px;
+    width: min(100%, 900px);
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
 }
 
 #hero-section {
@@ -231,10 +269,11 @@ header {
 
 #services-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 30px;
     max-width: 1200px;
     width: 100%;
+    min-width: 0;
 }
 
 #services .service {
@@ -247,6 +286,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 0;
 }
 
 #services .service:hover {
@@ -322,12 +362,13 @@ header {
 
 #features-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     justify-content: center;
     gap: 30px;
     max-width: 1300px;
     width: 100%;
     margin: 0 auto;
+    min-width: 0;
 }
 
 #features .feature {
@@ -341,6 +382,7 @@ header {
     flex-direction: column;
     align-items: center;
     position: relative;
+    min-width: 0;
 }
 
 #features .feature::after {
@@ -424,11 +466,12 @@ header {
 
 #testimonials-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     gap: 30px;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    min-width: 0;
 }
 
 #testimonials .testimonial {
@@ -442,6 +485,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    min-width: 0;
 }
 
 #testimonials .testimonial::before {
@@ -531,11 +575,12 @@ header {
 
 #pricing-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     gap: 30px;
     max-width: 1300px;
     width: 100%;
     margin: 0 auto;
+    min-width: 0;
 }
 
 .pricing-plan {
@@ -549,6 +594,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    min-width: 0;
 }
 
 .pricing-plan:hover {
@@ -699,12 +745,12 @@ header {
     align-items: center;
     justify-content: center;
     padding: 80px 20px;
-    background: linear-gradient(135deg, #FF6F61 0%, #FF8F7B 100%);
+    background: linear-gradient(135deg, #f16356 0%, #f6b0a3 100%);
 }
 
 #contact-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 60px;
     max-width: 1200px;
     width: 100%;
@@ -713,6 +759,7 @@ header {
 
 #contact-info {
     color: white;
+    min-width: 0;
 }
 
 #contact-info h2 {
@@ -742,13 +789,19 @@ header {
 
 .contact-icon {
     font-size: 32px;
+    width: 50px;
     min-width: 50px;
     height: 50px;
+    flex: 0 0 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
+}
+
+.contact-text {
+    min-width: 0;
 }
 
 .contact-text h4 {
@@ -803,6 +856,7 @@ header {
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    min-width: 0;
 }
 
 #contact-form {
@@ -871,7 +925,7 @@ header {
 
 #footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
     gap: 40px;
     max-width: 1300px;
     margin: 0 auto 40px;
@@ -939,6 +993,7 @@ header {
 
 .footer-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
     align-items: center;
 }
@@ -974,32 +1029,39 @@ header {
     }
 
     #navbar {
-        position: fixed;
+        position: absolute;
         left: 0;
-        top: 60px;
-        width: 100%;
-        height: calc(100vh - 60px);
+        right: 0;
+        top: 100%;
+        width: auto;
+        height: auto;
         background-color: #FFFFFF;
-        flex-direction: column;
-        padding-top: 20px;
+        padding: 0;
         max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
+        overflow-y: hidden;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: max-height 0.3s ease, opacity 0.2s ease, visibility 0.2s ease;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
 
     #navbar.active {
-        max-height: 500px;
+        max-height: 420px;
+        overflow-y: auto;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
     }
 
     #navbar ul {
         flex-direction: column;
         gap: 0;
-        padding: 0 20px;
+        padding: 8px 20px 12px;
     }
 
     #navbar ul li {
-        padding: 15px 0;
+        padding: 0;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
@@ -1010,6 +1072,7 @@ header {
     #navbar ul li a {
         font-size: 16px;
         display: block;
+        padding: 15px 0;
     }
 
     #hero {
@@ -1161,6 +1224,7 @@ header {
     .footer-links {
         order: 1;
         justify-content: center;
+        row-gap: 8px;
     }
 }
 
@@ -1173,14 +1237,16 @@ header {
         font-size: 18px;
     }
 
-    #hamburger-menu span {
-        width: 22px;
-        height: 2.5px;
+    #hamburger-menu {
+        --bar-width: 22px;
+        --bar-offset: 7px;
+        flex-basis: 42px;
+        width: 42px;
+        height: 42px;
     }
 
-    #navbar {
-        top: 55px;
-        height: calc(100vh - 55px);
+    #hamburger-menu span {
+        height: 2.5px;
     }
 
     #hero {
@@ -1222,7 +1288,7 @@ header {
         gap: 15px;
     }
 
-    .service {
+    #services .service {
         padding: 30px 20px;
     }
 
@@ -1238,7 +1304,7 @@ header {
         gap: 15px;
     }
 
-    .feature {
+    #features .feature {
         padding: 30px 20px;
     }
 
@@ -1254,7 +1320,7 @@ header {
         gap: 15px;
     }
 
-    .testimonial {
+    #testimonials .testimonial {
         padding: 30px 20px;
     }
 
@@ -1287,7 +1353,7 @@ header {
         font-size: 26px;
     }
 
-    #contact-details {
+    .contact-details {
         gap: 20px;
     }
 
@@ -1298,7 +1364,9 @@ header {
     .contact-icon {
         font-size: 28px;
         width: 45px;
+        min-width: 45px;
         height: 45px;
+        flex-basis: 45px;
     }
 
     #contact-form-wrapper {
@@ -1349,10 +1417,16 @@ header {
         font-size: 16px;
     }
 
+    #hamburger-menu {
+        --bar-width: 20px;
+        --bar-offset: 6px;
+        flex-basis: 40px;
+        width: 40px;
+        height: 40px;
+    }
+
     #hamburger-menu span {
-        width: 20px;
         height: 2px;
-        margin: 4px 0;
     }
 
     #hero {
@@ -1389,13 +1463,13 @@ header {
         font-size: 36px;
     }
 
-    .service h3,
-    .feature h3 {
+    #services .service h3,
+    #features .feature h3 {
         font-size: 18px;
     }
 
-    .service p,
-    .feature p {
+    #services .service p,
+    #features .feature p {
         font-size: 13px;
     }
 
