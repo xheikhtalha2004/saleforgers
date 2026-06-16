@@ -28,9 +28,15 @@
 
         <section id="hero-section">
             <div id="hero">
-            <h2>Revolutionize Your Sales Process</h2>
-            <p>Empower your sales team with cutting-edge tools and insights to close deals faster.</p>
-            <a href="#services" class="cta-button">Learn More</a>
+                <div id="hero-overlay"></div>
+                <div id="hero-content">
+                    <h2>Revolutionize Your Sales Process</h2>
+                    <p>Empower your sales team with cutting-edge tools and insights to close deals faster and smarter.</p>
+                    <div id="hero-buttons">
+                        <a href="#pricing" class="cta-button primary">Start Free Trial</a>
+                        <a href="#contact" class="cta-button secondary">Contact Sales</a>
+                    </div>
+                </div>
             </div>
               <div id="hero-image-container">
                 <img src="/assets/hero_image.png" alt="Hero Image" id="hero-image">
@@ -38,20 +44,26 @@
         </section>
 
         <section id="services">
-            <h2 id="service-heading">Our Services</h2>
+            <div id="services-header">
+                <h2 id="service-heading">Our Services</h2>
+                <p>Comprehensive solutions tailored to accelerate your sales success</p>
+            </div>
             <div id="services-container">
-            <div class="service">
-                <h3>Sales Analytics</h3>
-                <p>Gain deep insights into your sales data to make informed decisions and optimize your strategy.</p>
-            </div>
-            <div class="service">
-                <h3>Lead Management</h3>
-                <p>Organize and track your leads effectively to ensure no opportunity is missed.</p>
-            </div>
-            <div class="service">
-                <h3>Sales Automation</h3>
-                <p>Automate repetitive tasks to free up your sales team’s time and increase productivity.</p>
-            </div>
+                <div class="service">
+                    <div class="service-icon">📊</div>
+                    <h3>Sales Analytics</h3>
+                    <p>Gain deep insights into your sales data to make informed decisions and optimize your strategy.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">👥</div>
+                    <h3>Lead Management</h3>
+                    <p>Organize and track your leads effectively to ensure no opportunity is missed.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">⚡</div>
+                    <h3>Sales Automation</h3>
+                    <p>Automate repetitive tasks to free up your sales team's time and increase productivity.</p>
+                </div>
             </div>
         </section>
 
@@ -224,6 +236,108 @@
                 </div>
             </div>
         </section>
+
+        <section id="contact">
+            <div id="contact-container">
+                <div id="contact-info">
+                    <h2>Get Started Today</h2>
+                    <p>Ready to transform your sales process? Let's talk.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:hello@saleforgers.com">hello@saleforgers.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+1234567890">+1 (234) 567-890</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h4>Address</h4>
+                                <p>123 Business Street, NY 10001</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-btn" title="LinkedIn">in</a>
+                        <a href="#" class="social-btn" title="Twitter">tw</a>
+                        <a href="#" class="social-btn" title="Facebook">f</a>
+                        <a href="#" class="social-btn" title="Instagram">ig</a>
+                    </div>
+                </div>
+
+                <div id="contact-form-wrapper">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Company Name" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
-</body>
-</html>
+
+    <footer id="footer">
+        <div id="footer-content">
+            <div class="footer-section">
+                <h3>SALEFORGERS</h3>
+                <p>Revolutionizing sales with cutting-edge technology and innovation.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">API Docs</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="footer-bottom">
+            <p>&copy; 2024 SALEFORGERS. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <span>•</span>
+                <a href="#">Terms of Service</a>
+                <span>•</span>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
